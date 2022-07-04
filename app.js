@@ -3,6 +3,7 @@ const bookList = document.querySelector('.book-list');
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
 const addBtn = document.querySelector('.add-btn');
+const removeBtn = document.querySelector('.remove-btn');
 let bookTitleValue; 
 let bookAuthorValue;
 
@@ -46,7 +47,7 @@ function displayBook(){
       booklistContainer.innerHTML = `
         <label for="book-${book.num}">${book.title}</label><br>
         <small>${book.author}</small><br>
-        <input type="button" id="book-${book.num}" value="Remove" >
+        <input type="button" class="remove-btn" id="book-${book.num}" value="Remove" >
         <hr>
       `;
     } else {
@@ -57,10 +58,28 @@ function displayBook(){
   bookList.prepend(booklistContainer);
 }
 
+function removeABook(){
+  bookCollectionArray = bookCollectionArray.filter((book) => {
+    if (e.target.id){    //e.currentTarget.id
+      element.remove(`booklist-${book.num}`);
+    } else {
+      return;
+    }
+  })
+}
+
 // Add a book button
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
   addABook();
   displayBook();
+});
+
+// Remove a book button
+removeBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  // removeABook()
+  // undisplayBook()
 });
