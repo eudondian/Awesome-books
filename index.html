@@ -12,33 +12,31 @@
     <title>The BookList</title>
   </head>
   <body>
-    <div class="container">
+    <main>
       <h1>Awesome books</h1>
-      <p>Lorem, ipsum</p>
-      <p>Lorem, ipsum dolor</p>
-      <button>Remove</button>
-      <hr />
-      <p>Lorem, ipsum</p>
-      <p>Lorem, ipsum dolor</p>
-      <button>Remove</button>
-      <hr />
-
-      <form id="book-form">
-        <div class="form-group">
-          <label for="Title">Title</label>
-          <input type="text" id="title" class="form-control" />
+      <form>
+        <div class="book-list">
+          <div class="booklist-2">
+            <label for="book-2">Lorem ipsum</label><br>
+            <small>Testero Testyy</small><br>
+            <input type="button" id="book-2" value="Remove" >
+            <hr>
+          </div>
+          <div class="booklist-2">
+            <label for="book-2">Lorem ipsum</label><br>
+            <small>Testero Testyy</small> <br>
+            <input type="button" id="book-2" value="Remove" >
+            <hr>
         </div>
-        <div class="form-group">
-          <label for="author">Author</label>
-          <input type="text" id="author" class="form-control" />
+        <div>
+            <input type="text" value="Title"><br><br>
+            <input type="text" value="Author"><br><br>
+            <input type="button" value="Add">
         </div>
-        <button class="mt-4" type="submit">Add</button>
       </form>
-    </div>
+    </main>
+    <script src="app.js"></script>
 
-    <script>
-      src = '.app.js';
-    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
