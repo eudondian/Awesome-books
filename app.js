@@ -23,6 +23,7 @@ let bookCollectionObject = {};
 
 function addABook(){
   bookCollectionObject = {
+    num: bookCollectionArray.length + 1,
     title: bookTitle.value,
     author: bookAuthor.value
   }
