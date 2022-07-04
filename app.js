@@ -1,17 +1,14 @@
-// Book Class
+const bookList = document.querySelector('.book-list');
+const bookCollectionArray = [
+  {
+    num: 2,
+    title: Lorem ipsum,
+    author: Testero Testyy
+  },
 
-// UI class
-class UI {
-    static displayBooks() {
-  
-      const books = StoredBooks;
-  
-  books.forEach((bok) => UI.addBookToList(book);
-  
-    }
-  }
-  
-  // Event:  Add a Book
-  
-  // Event: Remove a Book
-  
+  {
+    num: 1,
+    title: Second Book,
+    author: Testero Testyy
+  },
+];
