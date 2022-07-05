@@ -53,6 +53,7 @@ function updateUI(){
     bookCollectionArray = [];
   }
 }
+
 updateUI();
 
 adbtn.addEventListener('submit', (e) => {
