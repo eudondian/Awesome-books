@@ -41,7 +41,7 @@ From the command line, do the following steps below:
 
 ```bash
 # Clone this repository
-$ git clone git@github.com:chelmerrox/Awesome-books.git
+$ git clone git@github.com:eudondian/Awesome-books.git
 
 ```
 2. Change directory/Go into the repository with the command below.
