@@ -60,7 +60,7 @@ if (localStorage.getItem('bookCollection')) {
 }
 
 // Add a book event listener
-/* adbtn.addEventListener('submit', (e) => {
+adbtn.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // Get the form values
@@ -72,4 +72,4 @@ if (localStorage.getItem('bookCollection')) {
   Book.addBookItems(item);
 
   Book.addABook(item, bookArray.length - 1);
-}); */
+});
