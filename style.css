@@ -53,7 +53,7 @@ body {
 .add-container::before {
   content: '';
   border-top: 2px solid black;
-  width: 15%;
+  width: 58%;
   display: flex;
 }
 
