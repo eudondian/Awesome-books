@@ -14,11 +14,11 @@
 
 ## Preview
 
-![Website preview](images/preview.png)
+![Website preview](./preview.png)
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/eudondian/Awesome-books/master/index.html)
+[Live Demo Link](https://raw.githack.com/eudondian/Awesome-books/milestone-2/index.html)
 
 ## Getting Started
 
