@@ -31,11 +31,16 @@ body {
   align-items: center;
 }
 
-.book-list {
+.book-list.active {
   border: 5px solid black;
   width: 95%;
   height: 100%;
-  padding: 10px;
+}
+
+/* Styles for book-data (each row in the book-list) */
+.book-data {
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-container {
@@ -73,7 +78,7 @@ body {
 .add-btn {
   border: 3px solid black;
   font-weight: bold;
-  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 1);
   position: relative;
   left: 100px;
   margin-top: -25px;
