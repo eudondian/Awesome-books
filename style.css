@@ -1,10 +1,10 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;  /* for Google Chrome and Apple Safari */
-  -moz-box-sizing: border-box;    /* for Mozilla Firefox */
-  -ms-box-sizing: border-box;   /* for Microsoft's Internet Explorer */
-  box-sizing: border-box;       /* box-sizing is a property allows us to change exactly how the box-model works  */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -14,10 +14,64 @@ html {
 }
 
 body {
-  font-family: 'Quicksand', Helvetica, sans-serif;
+  font-family: 'Comic Neue', 'Courier New', Courier, monospace;
   background-color: rgb(255, 255, 255);
-
-  /*  position: relative; */
-  min-height: 100vh;  /* vh (viewport height as unit of measure)) */
+  min-height: 100vh;
   margin: 0;
 }
+
+.caption {
+  font-weight: bold;
+  text-align: center;
+}
+
+.book-list {
+  border: 50% solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.add-container::before {
+  content: '';
+  border-top: 2px solid black;
+  width: 15%;
+  display: flex;
+}
+
+.add-container .book-title,
+.add-container .book-author {
+  border: 3px solid black;
+  width: 250px;
+  height: 30px;
+}
+/* 
+.add-container .book-author {
+  margin-top: -25px;
+} */
+/* 
+.add-container .book-title::placeholder,
+.add-container .book-author::placeholder {
+  color: black;
+  font-family: 'Comic Neue', 'Courier New', Courier, monospace;
+  font-weight: bold;
+} */
+
+/* .add-btn {
+  border: 3px solid black;
+  font-weight: bold;
+  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  position: relative;
+  left: 100px;
+  margin-top: -25px;
+} */
