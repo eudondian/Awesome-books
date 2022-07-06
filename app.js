@@ -62,14 +62,20 @@ if (localStorage.getItem('bookCollection')) {
 // Add a book event listener
 adbtn.addEventListener('submit', (e) => {
   e.preventDefault();
+  
+  let item;
 
   // Get the form values
   bookTitleValue = bookTitle.value;
   bookAuthorValue = bookAuthor.value;
 
-  let item = { title: bookTitleValue, author: bookAuthorValue };
+  if (bookTitleValue !== '' || bookAuthorValue !== ''){
+    item = { title: bookTitleValue, author: bookAuthorValue };
+    
+    Book.addBookItems(item);
 
-  Book.addBookItems(item);
-
-  Book.addABook(item, bookArray.length - 1);
+    Book.addABook(item, bookArray.length - 1);
+  } else {
+    return;
+  }
 });

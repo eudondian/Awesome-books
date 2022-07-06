@@ -25,12 +25,15 @@ body {
   text-align: center;
 }
 
-.book-list {
-  border: 50% solid black;
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+}
+
+.book-list {
+  border: 5px solid black;
+  width: 95%;
   height: 100%;
   padding: 10px;
 }
