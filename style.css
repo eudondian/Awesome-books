@@ -75,6 +75,14 @@ body {
   font-weight: bold;
 }
 
+.error-msg.active2 {
+  font-size: 14px;
+  color: red;
+  text-align: center;
+  position: relative;
+  top: -28px;
+}
+
 .add-btn {
   border: 3px solid black;
   font-weight: bold;

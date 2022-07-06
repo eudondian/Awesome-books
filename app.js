@@ -6,6 +6,7 @@ let bookTitleValue;
 let bookAuthorValue;
 const addbtn = document.querySelector('form');
 let bookArray = [];
+let errorMsg = document.querySelector('.error-msg');
 
 // Represents a Book
 class Book {
@@ -19,16 +20,15 @@ class Book {
   }
 
   static addABook(item, index) {
-    if (bookArray.length === 0){
+    if (bookArray.length === 0) {
       bookList.classList.remove('.active');
-      return;
     } else {
       bookList.classList.add('active');
 
       const bookData = document.createElement('div');
       bookData.classList.add('book-data');
       bookData.id = index;
-      
+
       const removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-btn');
       removeBtn.innerText = 'Remove';
@@ -53,7 +53,7 @@ class Book {
       bookData.style.paddingLeft = '10px';
       bookData.style.paddingRight = '10px';
 
-      (index%2 === 0) ? bookData.style.backgroundColor = 'white' : bookData.style.backgroundColor = '#d3d3d3';
+      (index % 2 === 0) ? bookData.style.backgroundColor = 'white' : bookData.style.backgroundColor = '#d3d3d3';
 
       const bookTitleText = bookData.querySelector('.book-title-text');
       bookTitleText.style.fontWeight = 'bolder';
@@ -74,13 +74,13 @@ class Book {
   static removeABook(item, index) {
     const bookCollection2 = document.getElementById(index);
     const { author, title } = item;
-    
+
     bookArray = bookArray.filter(
-      (item1) => item1.author !== author && item1.title !== title
+      (item1) => item1.author !== author && item1.title !== title,
     );
-    
+
     localStorage.setItem('bookCollection', JSON.stringify(bookArray));
-    
+
     bookList.removeChild(bookCollection2);
   }
 }
@@ -88,33 +88,37 @@ class Book {
 // If local storage is not empty, display the items on the webpage
 if (localStorage.getItem('bookCollection')) {
   bookArray = JSON.parse(localStorage.getItem('bookCollection'));
-  
+
   bookArray.forEach((item, index) => {
     Book.addABook(item, index);
   });
 } else {
   localStorage.setItem('bookCollection', '');
-  
+
   bookArray = [];
 }
 
 // Add a book event listener
 addbtn.addEventListener('submit', (e) => {
   e.preventDefault();
-  
+
   let item;
 
   // Get the form values
   bookTitleValue = bookTitle.value;
   bookAuthorValue = bookAuthor.value;
 
-  if (bookTitleValue !== '' || bookAuthorValue !== ''){
+  if (bookTitleValue !== '' || bookAuthorValue !== '') {
+    errorMsg.innerText = '';
+    errorMsg.classList.remove('active2');
+
     item = { title: bookTitleValue, author: bookAuthorValue };
-    
+
     Book.addBookItems(item);
 
     Book.addABook(item, bookArray.length - 1);
   } else {
-    return;
+    errorMsg.innerText = 'Please enter name of book & author\'s name.'
+    errorMsg.classList.add('active2');
   }
 });
