@@ -9,7 +9,7 @@ let bookArray = [];
 
 // Represents a Book
 class Book {
-  static addBookItems(item){
+  static addBookItems(item) {
     bookArray.push(item);
     console.log(bookArray);
 
@@ -19,7 +19,7 @@ class Book {
     bookAuthorValue = '';
   }
 
-  static addABook(bookInfo, index){
+  static addABook(bookInfo, index) {
     const bookData = document.createElement('div');
     bookData.classList.add('bookData');
     bookData.id = index;
@@ -37,17 +37,19 @@ class Book {
     };
   }
 
-  static removeABook(bookInfo, index){
+  static removeABook(bookInfo, index) {
     const bookCollection2 = document.getElementById(index);
     const { author, title } = bookInfo;
-    bookArray = bookArray.filter((item) => item.author !== author && item.title !== title);
+    bookArray = bookArray.filter(
+      (item) => item.author !== author && item.title !== title
+    );
     localStorage.setItem('bookCollection', JSON.stringify(bookArray));
     bookList.removeChild(bookCollection2);
   }
 }
 
 // If local storage is not empty, display the items on the webpage
-/* if (localStorage.getItem('bookCollection')) {
+if (localStorage.getItem('bookCollection')) {
   bookArray = JSON.parse(localStorage.getItem('bookCollection'));
   bookArray.forEach((bookInfo, index) => {
     Book.addABook(bookInfo, index);
@@ -55,7 +57,7 @@ class Book {
 } else {
   localStorage.setItem('bookCollection', '');
   bookArray = [];
-} */
+}
 
 // Add a book event listener
 /* adbtn.addEventListener('submit', (e) => {
