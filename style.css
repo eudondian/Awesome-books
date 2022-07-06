@@ -55,17 +55,15 @@ body {
   width: 250px;
   height: 30px;
 }
-/* 
-.add-container .book-author {
+* .add-container .book-author {
   margin-top: -25px;
-} */
-/* 
-.add-container .book-title::placeholder,
+}
+* .add-container .book-title::placeholder,
 .add-container .book-author::placeholder {
   color: black;
   font-family: 'Comic Neue', 'Courier New', Courier, monospace;
   font-weight: bold;
-} */
+}
 
 /* .add-btn {
   border: 3px solid black;
