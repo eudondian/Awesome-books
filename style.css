@@ -1,10 +1,10 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;  /* for Google Chrome and Apple Safari */
-  -moz-box-sizing: border-box;    /* for Mozilla Firefox */
-  -ms-box-sizing: border-box;   /* for Microsoft's Internet Explorer */
-  box-sizing: border-box;       /* box-sizing is a property allows us to change exactly how the box-model works  */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -14,10 +14,80 @@ html {
 }
 
 body {
-  font-family: 'Quicksand', Helvetica, sans-serif;
+  font-family: 'Comic Neue', 'Courier New', Courier, monospace;
   background-color: rgb(255, 255, 255);
-
-  /*  position: relative; */
-  min-height: 100vh;  /* vh (viewport height as unit of measure)) */
+  min-height: 100vh;
   margin: 0;
+}
+
+.caption {
+  font-weight: bold;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-list.active {
+  border: 5px solid black;
+  width: 95%;
+  height: 100%;
+}
+
+/* Styles for book-data (each row in the book-list) */
+.book-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.add-container::before {
+  content: '';
+  border-top: 2px solid black;
+  width: 58%;
+  display: flex;
+}
+
+.add-container .book-title,
+.add-container .book-author {
+  border: 3px solid black;
+  width: 250px;
+  height: 30px;
+}
+
+.add-container .book-author {
+  margin-top: -25px;
+}
+
+.add-container .book-title::placeholder,
+.add-container .book-author::placeholder {
+  color: black;
+  font-family: 'Comic Neue', 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.error-msg.active2 {
+  font-size: 14px;
+  color: red;
+  text-align: center;
+  position: relative;
+  top: -28px;
+}
+
+.add-btn {
+  border: 3px solid black;
+  font-weight: bold;
+  box-shadow: 3px 2px 2px 0 rgba(0, 0, 0, 1);
+  position: relative;
+  left: 100px;
+  margin-top: -25px;
 }
