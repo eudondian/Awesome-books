@@ -6,7 +6,7 @@ let bookTitleValue;
 let bookAuthorValue;
 const addbtn = document.querySelector('form');
 let bookArray = [];
-let errorMsg = document.querySelector('.error-msg');
+const errorMsg = document.querySelector('.error-msg');
 
 // Represents a Book
 class Book {
@@ -53,7 +53,11 @@ class Book {
       bookData.style.paddingLeft = '10px';
       bookData.style.paddingRight = '10px';
 
-      (index % 2 === 0) ? bookData.style.backgroundColor = 'white' : bookData.style.backgroundColor = '#d3d3d3';
+      if (index % 2 === 0) {
+        bookData.style.backgroundColor = 'white';
+      } else {
+        bookData.style.backgroundColor = '#d3d3d3';
+      }
 
       const bookTitleText = bookData.querySelector('.book-title-text');
       bookTitleText.style.fontWeight = 'bolder';
@@ -118,7 +122,7 @@ addbtn.addEventListener('submit', (e) => {
 
     Book.addABook(item, bookArray.length - 1);
   } else {
-    errorMsg.innerText = 'Please enter name of book & author\'s name.'
+    errorMsg.innerText = 'Please enter name of book & author\'s name.';
     errorMsg.classList.add('active2');
   }
 });
