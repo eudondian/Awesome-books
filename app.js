@@ -112,7 +112,7 @@ addbtn.addEventListener('submit', (e) => {
   bookTitleValue = bookTitle.value;
   bookAuthorValue = bookAuthor.value;
 
-  if (bookTitleValue !== '' || bookAuthorValue !== '') {
+  if (bookTitleValue !== '' && bookAuthorValue !== '') {
     errorMsg.innerText = '';
     errorMsg.classList.remove('active2');
 
