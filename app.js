@@ -28,6 +28,16 @@ class Book {
       const bookData = document.createElement('div');
       bookData.classList.add('book-data');
       bookData.id = index;
+      bookData.style.paddingTop = '5px';
+      bookData.style.paddingBottom = '5px';
+      bookData.style.paddingLeft = '10px';
+      bookData.style.paddingRight = '10px';
+
+      if (index % 2 === 0) {
+        bookData.style.backgroundColor = 'white';
+      } else {
+        bookData.style.backgroundColor = '#d3d3d3';
+      }
 
       const removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-btn');
@@ -47,17 +57,6 @@ class Book {
           <span class="book-author-text">${item.author}</span>
         </p>
       `;
-
-      bookData.style.paddingTop = '5px';
-      bookData.style.paddingBottom = '5px';
-      bookData.style.paddingLeft = '10px';
-      bookData.style.paddingRight = '10px';
-
-      if (index % 2 === 0) {
-        bookData.style.backgroundColor = 'white';
-      } else {
-        bookData.style.backgroundColor = '#d3d3d3';
-      }
 
       const bookTitleText = bookData.querySelector('.book-title-text');
       bookTitleText.style.fontWeight = 'bolder';
