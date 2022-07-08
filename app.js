@@ -114,7 +114,7 @@ function removeAllChildNodes(parent) {
 dateAndTime.innerHTML = dateAndTime1;
 
 // If local storage is not empty, display the items on the webpage
-/* if (localStorage.getItem('bookCollection')) {
+if (localStorage.getItem('bookCollection')) {
   bookArray = JSON.parse(localStorage.getItem('bookCollection'));
 
   bookArray.forEach((item, index) => {
@@ -139,7 +139,7 @@ dateAndTime.innerHTML = dateAndTime1;
   caption.classList.remove('hide');
   addContainer.classList.add('hide');
   contactContainer.classList.add('hide');
-} */
+}
 
 // List link
 list.onclick = () => {
