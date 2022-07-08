@@ -198,13 +198,13 @@ addNew.onclick = () => {
 
       item = { title: bookTitleValue, author: bookAuthorValue };
 
-      Book.addBookItems(item);
-
-      Book.addABook(item, bookArray.length - 1);
+      //Book.addABook(item, bookArray.length - 1);
     } else {
       errorMsg.innerText = "Please enter name of book & author's name.";
       errorMsg.classList.add('active2');
     }
+
+    Book.addBookItems(item);
   });
 };
 
@@ -218,3 +218,8 @@ contact.onclick = () => {
   addContainer.classList.add('hide');
   contactContainer.classList.remove('hide');
 };
+
+
+window.addEventListener('load', (event) => {
+  console.log('page is fully loaded');
+});
