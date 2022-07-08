@@ -4,14 +4,13 @@ const list = document.querySelector('.book-list-link');
 const addNew = document.querySelector('.add-new-link');
 const contact = document.querySelector('.contact-link');
 const dateAndTime = document.querySelector('.date-and-time');
-let dateAndTime1 = new Date();
+const dateAndTime1 = new Date();
 
 // For Book list page
 const caption = document.querySelector('.caption');
 const bookList = document.querySelector('.book-list');
 
 // For Add new page
-const caption2 = document.querySelector('.caption2');
 const addContainer = document.querySelector('.add-container');
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
@@ -95,7 +94,7 @@ class Book {
     const { author, title } = item;
 
     bookArray = bookArray.filter(
-      (item1) => item1.author !== author && item1.title !== title
+      (item1) => item1.author !== author && item1.title !== title,
     );
 
     localStorage.setItem('bookCollection', JSON.stringify(bookArray));
@@ -198,7 +197,7 @@ addNew.onclick = () => {
 
       item = { title: bookTitleValue, author: bookAuthorValue };
 
-      //Book.addABook(item, bookArray.length - 1);
+      // Book.addABook(item, bookArray.length - 1);
     } else {
       errorMsg.innerText = "Please enter name of book & author's name.";
       errorMsg.classList.add('active2');
@@ -219,7 +218,4 @@ contact.onclick = () => {
   contactContainer.classList.remove('hide');
 };
 
-
-window.addEventListener('load', (event) => {
-  console.log('page is fully loaded');
-});
+window.addEventListener('load', () => { });
