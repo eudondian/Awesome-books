@@ -8,11 +8,29 @@
   </head>
 
   <body>
+    <header class="header">
+      <nav class="navbar-1">
+        <a href="#" class="header-logo">Awesome Books</a>
+
+        <ul class="nav-links">
+          <li><a href="#book-list" class="nav-link book-list-link mr-5">List</a></li>
+          <li class="divider mr-5">|</li>
+          <li><a href="#add-container" class="nav-link add-new-link mr-5">Add new</a></li>
+          <li class="divider mr-5">|</li>
+          <li><a href="#" class="nav-link contact-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="navbar-2">
+        <p class="date-and-time"></p>
+      </nav>
+    </header>
+
     <main>
       <h1 class="caption">All awesome books</h1>
       <form class="form">
-        <div class="book-list"></div>
-        <div class="add-container">
+        <div class="book-list" id="#book-list"></div>
+        <div class="add-container" id="#add-container">
           <h2 class="caption2">Add a new book</h2>
           <input type="text" placeholder="Title" value="" class="book-title"/><br/><br/>
           <input type="text" placeholder="Author" value="" class="book-author"/><br/><br/>
@@ -20,8 +38,23 @@
           <button type="submit" class="add-btn">Add</button>
         </div>
       </form>
+
+      <section class="contact-container">
+        <h1 class="caption3">Contact information</h1>
+
+        <p class="text-1">Do you have any questions or you just want to say "Hello"? <br>You can reach out to us!</p>
+
+        <ul class="contacts">
+          <li class="contact-list">Our email: awesome.books@gmail.com</li>
+          <li class="contact-list">Our phone number: +679 000-111-000</li>
+          <li class="contact-list">Our address: 10 Mark Street, Suva, Fiji</li>
+        </ul>
+      </section>
     </main>
 
+    <footer class="footer">
+      <p class="copyright">&copy; 2022 Copyright</p>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>
