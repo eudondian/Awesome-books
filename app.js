@@ -95,7 +95,7 @@ class Book {
     const { author, title } = item;
 
     bookArray = bookArray.filter(
-      (item1) => item1.author !== author && item1.title !== title,
+      (item1) => item1.author !== author && item1.title !== title
     );
 
     localStorage.setItem('bookCollection', JSON.stringify(bookArray));
@@ -105,11 +105,11 @@ class Book {
 }
 
 // Remove all children elements of a parent node
-/* function removeAllChildNodes(parent) {
+function removeAllChildNodes(parent) {
   while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+    parent.removeChild(parent.firstChild);
   }
-} */
+}
 
 dateAndTime.innerHTML = dateAndTime1;
 
@@ -159,9 +159,9 @@ list.onclick = () => {
     contactContainer.classList.add('hide');
   } else {
     localStorage.setItem('bookCollection', '');
-  
+
     bookArray = [];
-  
+
     list.classList.add('blue');
     addNew.classList.remove('blue');
     contact.classList.remove('blue');
@@ -169,7 +169,7 @@ list.onclick = () => {
     addContainer.classList.add('hide');
     contactContainer.classList.add('hide');
   }
-}
+};
 
 // Add new link
 addNew.onclick = () => {
@@ -202,11 +202,11 @@ addNew.onclick = () => {
 
       Book.addABook(item, bookArray.length - 1);
     } else {
-      errorMsg.innerText = 'Please enter name of book & author\'s name.';
+      errorMsg.innerText = "Please enter name of book & author's name.";
       errorMsg.classList.add('active2');
     }
   });
-}
+};
 
 // Contact link
 contact.onclick = () => {
@@ -217,4 +217,4 @@ contact.onclick = () => {
   removeAllChildNodes(bookList);
   addContainer.classList.add('hide');
   contactContainer.classList.remove('hide');
-}
+};
