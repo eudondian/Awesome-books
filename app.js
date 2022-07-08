@@ -1,5 +1,17 @@
 // Variable declarations
+// For navbar 1 & navbar 2
+const list = document.querySelector('.book-list-link');
+const addNew = document.querySelector('.add-new-link');
+const contact = document.querySelector('.contact-link');
+const dateAndTime = document.querySelector('.date-and-time');
+const dateAndTime1 = new Date();
+
+// For Book list page
+const caption = document.querySelector('.caption');
 const bookList = document.querySelector('.book-list');
+
+// For Add new page
+const addContainer = document.querySelector('.add-container');
 const bookTitle = document.querySelector('.book-title');
 const bookAuthor = document.querySelector('.book-author');
 let bookTitleValue;
@@ -7,6 +19,9 @@ let bookAuthorValue;
 const addbtn = document.querySelector('form');
 let bookArray = [];
 const errorMsg = document.querySelector('.error-msg');
+
+// For Contact page
+const contactContainer = document.querySelector('.contact-container');
 
 // Represents a Book
 class Book {
@@ -28,6 +43,16 @@ class Book {
       const bookData = document.createElement('div');
       bookData.classList.add('book-data');
       bookData.id = index;
+      bookData.style.paddingTop = '5px';
+      bookData.style.paddingBottom = '5px';
+      bookData.style.paddingLeft = '10px';
+      bookData.style.paddingRight = '10px';
+
+      if (index % 2 === 0) {
+        bookData.style.backgroundColor = 'white';
+      } else {
+        bookData.style.backgroundColor = '#d3d3d3';
+      }
 
       const removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-btn');
@@ -47,17 +72,6 @@ class Book {
           <span class="book-author-text">${item.author}</span>
         </p>
       `;
-
-      bookData.style.paddingTop = '5px';
-      bookData.style.paddingBottom = '5px';
-      bookData.style.paddingLeft = '10px';
-      bookData.style.paddingRight = '10px';
-
-      if (index % 2 === 0) {
-        bookData.style.backgroundColor = 'white';
-      } else {
-        bookData.style.backgroundColor = '#d3d3d3';
-      }
 
       const bookTitleText = bookData.querySelector('.book-title-text');
       bookTitleText.style.fontWeight = 'bolder';
@@ -89,6 +103,15 @@ class Book {
   }
 }
 
+// Remove all children elements of a parent node
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+dateAndTime.innerHTML = dateAndTime1;
+
 // If local storage is not empty, display the items on the webpage
 if (localStorage.getItem('bookCollection')) {
   bookArray = JSON.parse(localStorage.getItem('bookCollection'));
@@ -96,33 +119,103 @@ if (localStorage.getItem('bookCollection')) {
   bookArray.forEach((item, index) => {
     Book.addABook(item, index);
   });
+
+  list.classList.add('blue');
+  addNew.classList.remove('blue');
+  contact.classList.remove('blue');
+  caption.classList.remove('hide');
+  bookList.classList.add('active');
+  addContainer.classList.add('hide');
+  contactContainer.classList.add('hide');
 } else {
   localStorage.setItem('bookCollection', '');
 
   bookArray = [];
+
+  list.classList.add('blue');
+  addNew.classList.remove('blue');
+  contact.classList.remove('blue');
+  caption.classList.remove('hide');
+  addContainer.classList.add('hide');
+  contactContainer.classList.add('hide');
 }
 
-// Add a book event listener
-addbtn.addEventListener('submit', (e) => {
-  e.preventDefault();
+// List link
+list.onclick = () => {
+  if (localStorage.getItem('bookCollection')) {
+    bookArray = JSON.parse(localStorage.getItem('bookCollection'));
 
-  let item;
+    bookArray.forEach((item, index) => {
+      Book.addABook(item, index);
+    });
 
-  // Get the form values
-  bookTitleValue = bookTitle.value;
-  bookAuthorValue = bookAuthor.value;
+    list.classList.add('blue');
+    addNew.classList.remove('blue');
+    contact.classList.remove('blue');
+    caption.classList.remove('hide');
+    bookList.classList.add('active');
+    addContainer.classList.add('hide');
+    contactContainer.classList.add('hide');
+  } else {
+    localStorage.setItem('bookCollection', '');
 
-  if (bookTitleValue !== '' && bookAuthorValue !== '') {
-    errorMsg.innerText = '';
-    errorMsg.classList.remove('active2');
+    bookArray = [];
 
-    item = { title: bookTitleValue, author: bookAuthorValue };
+    list.classList.add('blue');
+    addNew.classList.remove('blue');
+    contact.classList.remove('blue');
+    caption.classList.remove('hide');
+    addContainer.classList.add('hide');
+    contactContainer.classList.add('hide');
+  }
+};
+
+// Add new link
+addNew.onclick = () => {
+  list.classList.remove('blue');
+  contact.classList.remove('blue');
+  addNew.classList.add('blue');
+  caption.classList.add('hide');
+  bookList.classList.remove('active');
+  removeAllChildNodes(bookList);
+  addContainer.classList.remove('hide');
+  contactContainer.classList.add('hide');
+
+  // Add a book event listener
+  addbtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let item;
+
+    // Get the form values
+    bookTitleValue = bookTitle.value;
+    bookAuthorValue = bookAuthor.value;
+
+    if (bookTitleValue !== '' && bookAuthorValue !== '') {
+      errorMsg.innerText = '';
+      errorMsg.classList.remove('active2');
+
+      item = { title: bookTitleValue, author: bookAuthorValue };
+
+      // Book.addABook(item, bookArray.length - 1);
+    } else {
+      errorMsg.innerText = "Please enter name of book & author's name.";
+      errorMsg.classList.add('active2');
+    }
 
     Book.addBookItems(item);
+  });
+};
 
-    Book.addABook(item, bookArray.length - 1);
-  } else {
-    errorMsg.innerText = 'Please enter name of book & author\'s name.';
-    errorMsg.classList.add('active2');
-  }
-});
+// Contact link
+contact.onclick = () => {
+  list.classList.remove('blue');
+  addNew.classList.remove('blue');
+  contact.classList.add('blue');
+  bookList.classList.remove('active');
+  removeAllChildNodes(bookList);
+  addContainer.classList.add('hide');
+  contactContainer.classList.remove('hide');
+};
+
+window.addEventListener('load', () => { });
