@@ -218,4 +218,4 @@ contact.onclick = () => {
   contactContainer.classList.remove('hide');
 };
 
-window.addEventListener('load', () => { });
+window.addEventListener('load', (e) => { e.target; });
